@@ -24,4 +24,20 @@ class PatternGenerator
     # return false if input !matches pattern
   end
 
+  def jeff_solution(example, pattern)
+    example.chars.zip(pattern.chars).all? do |example_char, pattern_char|
+      verify_single(example_char, pattern_char)
+    end
+  end
+
+  def verify_single(example, pattern)
+    if pattern == "."
+      ("A".."Z").include?(example)
+    elsif pattern == '#'
+      ("0".."9").include?(example)
+    else
+      example == pattern
+    end
+  end
+
 end

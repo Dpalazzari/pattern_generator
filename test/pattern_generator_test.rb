@@ -49,4 +49,11 @@ class PatternGeneratorTest < Minitest::Test
     assert_equal false, g
   end
 
+  def test_jeffs_verify_methods
+    g = PatternGenerator.new
+    pattern = '..##..##'
+    sample = 'AG34CD17'
+    assert g.jeff_solution(sample, pattern)
+  end
+
 end
