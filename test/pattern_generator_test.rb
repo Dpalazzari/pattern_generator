@@ -26,10 +26,27 @@ class PatternGeneratorTest < Minitest::Test
   end
 
   def test_it_verifies_one_character
-    skip
     generator = PatternGenerator.new
     g = generator.verify('A', '.')
     assert_equal true, g
+  end
+
+  def test_it_refutes_one_character
+    generator = PatternGenerator.new
+    g = generator.verify('A', '#')
+    assert_equal false, g
+  end
+
+  def test_it_verifies_a_hash_key_number
+    generator = PatternGenerator.new
+    g = generator.verify('1', '#')
+    assert_equal true, g
+  end
+
+  def test_it_refutes_a_hash_key_letter
+    generator = PatternGenerator.new
+    g = generator.verify('1', '.')
+    assert_equal false, g
   end
 
 end
